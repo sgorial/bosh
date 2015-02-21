@@ -26,7 +26,7 @@ module Bosh
       end
 
       def bosh_deployment_name
-        "vpc-bosh-#{name}"
+        "#{name}"
       end
 
       def director_ssl_key
