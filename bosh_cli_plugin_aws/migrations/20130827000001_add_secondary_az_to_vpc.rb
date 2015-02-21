@@ -9,9 +9,9 @@ class AddSecondaryAzToVpc < Bosh::Aws::Migration
     new_az = vpc_receipt["original_configuration"]["vpc"]["subnets"]["cf_elb2"]["availability_zone"]
 
     subnets = {
-      "bosh2" => {"availability_zone" => new_az, "cidr" => "10.10.64.0/24", "default_route" => "igw"},
-      "cf2" => {"availability_zone" => new_az, "cidr" => "10.10.80.0/20", "default_route" => "cf_nat_box1"},
-      "services2" => {"availability_zone" => new_az, "cidr" => "10.10.96.0/20", "default_route" => "cf_nat_box1"},
+      "bosh2" => {"availability_zone" => new_az, "cidr" => "10.96.64.0/24", "default_route" => "igw"},
+      "cf2" => {"availability_zone" => new_az, "cidr" => "10.96.80.0/20", "default_route" => "cf_nat_box1"},
+      "services2" => {"availability_zone" => new_az, "cidr" => "10.96.96.0/20", "default_route" => "cf_nat_box1"},
     }
 
     existing_subnets = vpc.subnets
