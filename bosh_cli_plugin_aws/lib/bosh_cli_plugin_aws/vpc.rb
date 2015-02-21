@@ -2,7 +2,7 @@ module Bosh
   module Aws
     class VPC
 
-      DEFAULT_CIDR = "10.96.32.0/22"
+      DEFAULT_CIDR = "10.96.32.0/20"
       DEFAULT_ROUTE = "0.0.0.0/0"
       NAT_INSTANCE_DEFAULTS = {
           :image_id => "ami-f619c29f",
