@@ -10,15 +10,15 @@ networks:
 - name: default
   type: manual
   subnets:
-  - range: 10.10.0.0/24
-    gateway: 10.10.0.1
+  - range: 10.96.32.0/22
+    gateway: 10.96.32.1
     static:
-    - 10.10.0.7 - 10.10.0.9
+    - 10.96.40.7 - 10.96.40.9
     reserved:
-    - 10.10.0.2 - 10.10.0.6
-    - 10.10.0.10 - 10.10.0.10
+    - 10.96.40.2 - 10.96.40.6
+    - 10.96.40.10 - 10.96.40.10
     dns:
-    - 10.10.0.6
+    - 10.96.32.6
     cloud_properties:
       subnet: <%= subnet %>
 - name: vip_network
@@ -76,7 +76,7 @@ jobs:
   - name: default
     default: [dns, gateway]
     static_ips:
-    - 10.10.0.7
+    - 10.96.40.7
   - name: vip_network
     static_ips:
     - <%= vip %>
@@ -93,7 +93,7 @@ properties:
   - 3.north-america.pool.ntp.org
 
   blobstore:
-    address: 10.10.0.7
+    address: 10.96.40.7
     port: 25251
     backend_port: 25552
     agent:
@@ -110,7 +110,7 @@ properties:
   nats:
     user: nats
     password: 0b450ada9f830085e2cdeff6
-    address: 10.10.0.7
+    address: 10.96.40.7
     port: 4222
 
   mysql: &bosh_db
@@ -128,7 +128,7 @@ properties:
 
   director:
     name: <%= bosh_deployment_name %>
-    address: 10.10.0.7
+    address: 10.96.40.7
     port: 25555
     encryption: false
     enable_snapshots: true
@@ -167,7 +167,7 @@ properties:
     <% end %>
 
   registry:
-    address: 10.10.0.7
+    address: 10.96.40.7
     db: *bosh_db
     http:
       port: 25777
@@ -183,7 +183,7 @@ properties:
     default_security_groups: ["bosh"]
 
   dns:
-    address: 10.10.0.7
+    address: 10.96.40.7
     db: *bosh_db
     recursor: 208.67.220.220
 
