@@ -7,9 +7,9 @@ logging:
 network:
   type: manual
   vip:  <%= vip %>
-  ip: 10.10.0.6
+  ip: 10.96.40.6
   dns:
-  - 10.10.0.2
+  - 10.96.40.2
   cloud_properties:
     subnet: <%= subnet %>
 
@@ -39,9 +39,9 @@ cloud:
 apply_spec:
   agent:
     blobstore:
-      address: 10.10.0.6
+      address: 10.96.40.6
     nats:
-      address: 10.10.0.6
+      address: 10.96.40.6
   properties:
     ntp:
     - 0.north-america.pool.ntp.org
@@ -49,7 +49,7 @@ apply_spec:
     - 2.north-america.pool.ntp.org
     - 3.north-america.pool.ntp.org
     registry:
-      address: 10.10.0.6
+      address: 10.96.40.6
     dns:
       recursor: 208.67.220.220
     hm:
