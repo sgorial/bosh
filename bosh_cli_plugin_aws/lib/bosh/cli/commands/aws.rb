@@ -7,7 +7,7 @@ require 'bosh_cli_plugin_aws/vpc_destroyer'
 
 module Bosh::Cli::Command
   class AWS < Base
-    DEFAULT_CIDR = '10.0.0.0/16' # KILL
+    DEFAULT_CIDR = '10.96.32.0/20' # KILL
 
     attr_reader :output_state, :config_dir, :ec2
     attr_accessor :vpc
